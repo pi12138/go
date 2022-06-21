@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/zyp/calculator"
+	"calculator"
 )
 
 func main() {
