@@ -1,29 +1,37 @@
 package main
 
 import (
+	"calculator2"
 	"fmt"
+	"os"
+	"strconv"
+
+	"calculator"
 )
 
 func main() {
-	fmt.Println("hello, world")
+	count := sum(os.Args[1], os.Args[2])
+	fmt.Println(os.Args[0], count)
 
-	// define variable
-	// style 1
-	var age int = 10
-	var name string = "张三"
-	var str string = "hello, world"
+	str1 := "hello"
+	fmt.Println(str1)
+	str1 = swap(&str1)
+	fmt.Println(str1)
 
-	// style 2
-	var weigth = 100
+	count = calculator.Sum(4, 5)
+	fmt.Println(count, calculator.Version)
+	count = calculator2.Sum(10, 20)
+	fmt.Println(count, calculator2.Version)
 
-	// style 3
-	height := 180
+}
 
-	// variable must be used
-	fmt.Println(age, name, str, weigth, height)
+func sum(number1 string, number2 string) int {
+	number1_int, _ := strconv.Atoi(number1)
+	number2_int, _ := strconv.Atoi(number2)
+	return number1_int + number2_int
+}
 
-	// define const
-	// const dont use
-	const PI = 3.1415926
-	const ONE int = 1
+func swap(str1 *string) string {
+	*str1 = "world"
+	return *str1
 }
